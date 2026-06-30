@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Decks For Rent Barcelona | Alquiler CDJ-3000 y Xone:96 | DJ Equipment Rental</title>
+  <meta name="description" content="Alquiler de equipo DJ profesional en Barcelona. 2x Pioneer CDJ-3000 y Allen &amp; Heath Xone:96. Setup de club para fiestas, eventos y festivales. DJ equipment rental Barcelona. Lloguer equip DJ professional a Barcelona.">
+  <meta name="keywords" content="alquiler CDJ Barcelona, alquiler equipo DJ Barcelona, Pioneer CDJ-3000 alquiler, Xone 96 alquiler, DJ equipment rental Barcelona, CDJ rental Barcelona, hire DJ equipment Barcelona, lloguer CDJ Barcelona, lloguer equip DJ Barcelona">
+  <meta property="og:title" content="Decks For Rent Barcelona | DJ Equipment Rental">
+  <meta property="og:description" content="Professional DJ equipment rental in Barcelona. 2x Pioneer CDJ-3000 &amp; Allen &amp; Heath Xone:96. Club setup for parties, events and festivals.">
+  <meta property="og:url" content="https://decksforrent.net">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:locale:alternate" content="en_GB">
+  <meta property="og:locale:alternate" content="ca_ES">
+  <link rel="canonical" href="https://decksforrent.net">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 900;
+      background: #000000;
+      color: #FFFFFF;
+      overflow-x: hidden;
+    }
+
+    /* —— Hero grid —— */
+    .hero {
+      background: #000000;
+      width: 100%;
+    }
+
+    .grid {
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(3, auto);
+      gap: 0;
+    }
+
+    .word {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      text-transform: uppercase;
+      font-weight: 900;
+      font-size: clamp(1.4rem, 6.2vw, 5.5rem);
+      line-height: 0.82;
+      letter-spacing: -0.04em;
+      color: #FFFFFF;
+      white-space: nowrap;
+      user-select: none;
+      -webkit-font-smoothing: antialiased;
+      padding: 0.05em 0;
+    }
+
+    /* —— Sección equipos —— */
+    .section-equipos {
+      background: #FFFFFF;
+      padding: 80px 1.5rem;
+      text-align: center;
+    }
+
+    .equipos-label {
+      font-size: clamp(0.65rem, 1.6vw, 0.78rem);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #888888;
+      margin-bottom: 2rem;
+    }
+
+    .equipos-img {
+      width: 100%;
+      max-width: 800px;
+      display: block;
+      margin: 0 auto 2rem;
+    }
+
+    .equipos-detail {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+
+    .equipos-detail li {
+      font-size: clamp(0.95rem, 2.2vw, 1.15rem);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #000000;
+    }
+
+    /* —— Sección formulario —— */
+    .section-form {
+      background: #111111;
+      padding: 80px 1.5rem;
+    }
+
+    .cta-row {
+      display: flex;
+      justify-content: center;
+    }
+
+    .btn {
+      font-family: inherit;
+      font-weight: 900;
+      font-size: clamp(0.75rem, 2vw, 0.95rem);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #FFFFFF;
+      background: transparent;
+      border: 2px solid #FFFFFF;
+      padding: 0.75em 1.4em;
+      cursor: pointer;
+      transition: background 0.2s ease, color 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .btn:hover {
+      background: #FFFFFF;
+      color: #111111;
+    }
+
+    .form-panel {
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: max-height 0.4s ease, opacity 0.3s ease, margin 0.4s ease;
+      margin-top: 0;
+    }
+
+    .form-panel.open {
+      max-height: 1400px;
+      opacity: 1;
+      margin-top: 2.5rem;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      max-width: 600px;
+      margin: 0 auto;
+      color: #FFFFFF;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .form-group label {
+      font-size: clamp(0.65rem, 1.6vw, 0.78rem);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.65);
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      font-family: inherit;
+      font-weight: 900;
+      font-size: clamp(0.8rem, 2vw, 0.95rem);
+      letter-spacing: 0.04em;
+      color: #FFFFFF;
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid #FFFFFF;
+      border-radius: 0;
+      padding: 0.6em 0;
+      outline: none;
+      color-scheme: dark;
+    }
+
+    .form-group select {
+      cursor: pointer;
+      appearance: none;
+      background-color: transparent;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23FFFFFF' d='M6 8L0 0h12z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 0 center;
+      padding-right: 1.5em;
+    }
+
+    .form-group select option {
+      background: #111111;
+      color: #FFFFFF;
+    }
+
+    .form-group textarea {
+      min-height: 80px;
+      resize: vertical;
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: rgba(255, 255, 255, 0.3);
+      text-transform: none;
+    }
+
+    .contact-form .btn {
+      width: 100%;
+      margin-top: 0.5rem;
+    }
+
+    .form-success {
+      display: none;
+      text-align: center;
+      font-size: clamp(0.75rem, 2vw, 0.9rem);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.7);
+      padding: 0.75rem 0;
+    }
+
+    .form-success.show {
+      display: block;
+    }
+
+    .form-error {
+      display: none;
+      text-align: center;
+      font-size: clamp(0.75rem, 2vw, 0.9rem);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #FF2D2D;
+      padding: 0.75rem 0;
+    }
+
+    .form-error.show {
+      display: block;
+    }
+
+    .btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    .lang-toggle {
+      position: fixed;
+      top: 1.25rem;
+      right: 1.25rem;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      gap: 0.35em;
+      font-size: clamp(0.6rem, 1.4vw, 0.72rem);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      user-select: none;
+    }
+
+    .lang-opt {
+      cursor: pointer;
+      color: #666666;
+      transition: color 0.2s ease;
+    }
+
+    .lang-opt.active {
+      color: #FFFFFF;
+    }
+
+    .lang-sep {
+      color: #666666;
+    }
+
+    @media (max-width: 768px) {
+      .section-equipos,
+      .section-form {
+        padding: 60px 1.25rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="lang-toggle" id="lang-toggle" aria-label="Idioma">
+    <span class="lang-opt active" data-lang="es">ES</span>
+    <span class="lang-sep">·</span>
+    <span class="lang-opt" data-lang="en">EN</span>
+  </div>
+
+  <section class="hero">
+    <div class="grid" aria-label="DECKS FOR RENT BCN">
+      <span class="word">Decks</span>
+      <span class="word">For</span>
+      <span class="word">Rent</span>
+      <span class="word">Bcn</span>
+      <span class="word">Decks</span>
+      <span class="word">For</span>
+      <span class="word">Rent</span>
+      <span class="word">Bcn</span>
+      <span class="word">Decks</span>
+      <span class="word">For</span>
+      <span class="word">Rent</span>
+      <span class="word">Bcn</span>
+    </div>
+  </section>
+
+  <section class="section-equipos">
+    <p class="equipos-label" data-i18n="equipos.label">Equipo disponible</p>
+    <img
+      class="equipos-img"
+      src="https://thedjhookup.com/media/catalog/product/p/i/pioneer-cdj-3000-allen-heath-xone-96-bundle.png"
+      alt="Pioneer CDJ-3000 y Allen &amp; Heath Xone:96"
+      data-i18n-alt="equipos.alt"
+      loading="lazy"
+    >
+    <ul class="equipos-detail">
+      <li data-i18n="equipos.cdj">2× Pioneer CDJ-3000</li>
+      <li data-i18n="equipos.xone">1× Allen &amp; Heath Xone:96</li>
+    </ul>
+  </section>
+
+  <section class="section-form">
+    <div class="cta-row">
+      <button type="button" class="btn" id="btn-presupuesto" aria-expanded="false" aria-controls="form-panel" data-i18n="cta.presupuesto">
+        Solicitar presupuesto
+      </button>
+    </div>
+
+    <div class="form-panel" id="form-panel" aria-hidden="true">
+      <form
+        class="contact-form"
+        id="contact-form"
+        action="https://formspree.io/f/mgojlgkw"
+        method="POST"
+      >
+        <div class="form-group">
+          <label for="nombre" data-i18n="form.nombre">Nombre</label>
+          <input type="text" id="nombre" name="nombre" required autocomplete="name" data-i18n-placeholder="form.nombre.placeholder">
+        </div>
+
+        <div class="form-group">
+          <label for="telefono" data-i18n="form.telefono">Teléfono</label>
+          <input type="tel" id="telefono" name="telefono" required autocomplete="tel" data-i18n-placeholder="form.telefono.placeholder">
+        </div>
+
+        <div class="form-group">
+          <label for="email" data-i18n="form.email">Email</label>
+          <input type="email" id="email" name="email" required autocomplete="email" data-i18n-placeholder="form.email.placeholder">
+        </div>
+
+        <div class="form-group">
+          <label for="equipo" data-i18n="form.equipo">Equipo</label>
+          <select id="equipo" name="equipo" required>
+            <option value="" disabled selected data-i18n="select.placeholder">Selecciona una opción</option>
+            <option value="Setup completo" data-i18n="equipo.setup">Setup completo</option>
+            <option value="Solo CDJ-3000 x2" data-i18n="equipo.cdj2">Solo CDJ-3000 x2</option>
+            <option value="Solo 1× CDJ-3000" data-i18n="equipo.cdj1">Solo 1× CDJ-3000</option>
+            <option value="Solo Xone:96" data-i18n="equipo.xone">Solo Xone:96</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="evento" data-i18n="form.evento">Tipo de evento</label>
+          <select id="evento" name="evento" required>
+            <option value="" disabled selected data-i18n="select.placeholder">Selecciona una opción</option>
+            <option value="Fiesta privada" data-i18n="evento.privada">Fiesta privada</option>
+            <option value="Corporativo" data-i18n="evento.corporativo">Corporativo</option>
+            <option value="Club / Festival" data-i18n="evento.club">Club / Festival</option>
+            <option value="Estudio" data-i18n="evento.estudio">Estudio</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="fecha" data-i18n="form.fecha">Fecha</label>
+          <input type="date" id="fecha" name="fecha" required>
+        </div>
+
+        <div class="form-group">
+          <label for="rrss_perfil" data-i18n="form.rrss">¿Cuál es tu perfil de redes sociales?</label>
+          <input type="text" id="rrss_perfil" name="rrss_perfil" data-i18n-placeholder="form.rrss.placeholder">
+        </div>
+
+        <div class="form-group">
+          <label for="mensaje" data-i18n="form.mensaje">Mensaje (opcional)</label>
+          <textarea id="mensaje" name="mensaje" rows="3" data-i18n-placeholder="form.mensaje.placeholder"></textarea>
+        </div>
+
+        <button type="submit" class="btn" id="submit-btn" data-i18n="form.submit">Enviar</button>
+        <p class="form-success" id="form-success" data-i18n="form.success">Mensaje enviado. Te contactaremos pronto.</p>
+        <p class="form-error" id="form-error" data-i18n="form.error">Error al enviar. Inténtalo de nuevo.</p>
+      </form>
+    </div>
+  </section>
+
+  <script>
+    (function () {
+      var translations = {
+        es: {
+          'lang.aria': 'Idioma',
+          'equipos.label': 'Equipo disponible',
+          'equipos.alt': 'Pioneer CDJ-3000 y Allen & Heath Xone:96',
+          'equipos.cdj': '2× Pioneer CDJ-3000',
+          'equipos.xone': '1× Allen & Heath Xone:96',
+          'cta.presupuesto': 'Solicitar presupuesto',
+          'form.nombre': 'Nombre',
+          'form.nombre.placeholder': 'Tu nombre completo',
+          'form.telefono': 'Teléfono',
+          'form.telefono.placeholder': '+34 600 000 000',
+          'form.email': 'Email',
+          'form.email.placeholder': 'tu@email.com',
+          'form.equipo': 'Equipo',
+          'form.evento': 'Tipo de evento',
+          'form.fecha': 'Fecha',
+          'form.rrss': '¿Cuál es tu perfil de redes sociales?',
+          'form.rrss.placeholder': '@instagram',
+          'form.mensaje': 'Mensaje (opcional)',
+          'form.mensaje.placeholder': 'Cuéntanos más sobre tu evento…',
+          'form.submit': 'Enviar',
+          'form.success': 'Mensaje enviado. Te contactaremos pronto.',
+          'form.error': 'Error al enviar. Inténtalo de nuevo.',
+          'select.placeholder': 'Selecciona una opción',
+          'equipo.setup': 'Setup completo',
+          'equipo.cdj2': 'Solo CDJ-3000 x2',
+          'equipo.cdj1': 'Solo 1× CDJ-3000',
+          'equipo.xone': 'Solo Xone:96',
+          'evento.privada': 'Fiesta privada',
+          'evento.corporativo': 'Corporativo',
+          'evento.club': 'Club / Festival',
+          'evento.estudio': 'Estudio'
+        },
+        en: {
+          'lang.aria': 'Language',
+          'equipos.label': 'Available Gear',
+          'equipos.alt': 'Pioneer CDJ-3000 and Allen & Heath Xone:96',
+          'equipos.cdj': '2× Pioneer CDJ-3000',
+          'equipos.xone': '1× Allen & Heath Xone:96',
+          'cta.presupuesto': 'Get a Quote',
+          'form.nombre': 'Name',
+          'form.nombre.placeholder': 'Your full name',
+          'form.telefono': 'Phone',
+          'form.telefono.placeholder': '+34 600 000 000',
+          'form.email': 'Email',
+          'form.email.placeholder': 'you@email.com',
+          'form.equipo': 'Equipment',
+          'form.evento': 'Event type',
+          'form.fecha': 'Date',
+          'form.rrss': 'What is your main social media profile?',
+          'form.rrss.placeholder': '@instagram',
+          'form.mensaje': 'Message (optional)',
+          'form.mensaje.placeholder': 'Tell us more about your event…',
+          'form.submit': 'Send',
+          'form.success': 'Message sent. We\'ll contact you soon.',
+          'form.error': 'Error sending. Please try again.',
+          'select.placeholder': 'Select an option',
+          'equipo.setup': 'Full setup',
+          'equipo.cdj2': 'CDJ-3000 x2 only',
+          'equipo.cdj1': '1× CDJ-3000 only',
+          'equipo.xone': 'Xone:96 only',
+          'evento.privada': 'Private party',
+          'evento.corporativo': 'Corporate',
+          'evento.club': 'Club / Festival',
+          'evento.estudio': 'Studio session'
+        }
+      };
+
+      var currentLang = localStorage.getItem('lang') || 'es';
+
+      function applyLanguage(lang) {
+        currentLang = lang;
+        localStorage.setItem('lang', lang);
+        document.documentElement.lang = lang;
+
+        var t = translations[lang];
+
+        document.getElementById('lang-toggle').setAttribute('aria-label', t['lang.aria']);
+
+        document.querySelectorAll('[data-i18n]').forEach(function (el) {
+          el.textContent = t[el.getAttribute('data-i18n')];
+        });
+
+        document.querySelectorAll('[data-i18n-placeholder]').forEach(function (el) {
+          el.placeholder = t[el.getAttribute('data-i18n-placeholder')];
+        });
+
+        document.querySelectorAll('[data-i18n-alt]').forEach(function (el) {
+          el.alt = t[el.getAttribute('data-i18n-alt')];
+        });
+
+        document.querySelectorAll('option[data-i18n]').forEach(function (opt) {
+          var key = opt.getAttribute('data-i18n');
+          var text = t[key];
+          opt.textContent = text;
+          if (opt.value !== '') {
+            opt.value = text;
+          }
+        });
+
+        document.querySelectorAll('.lang-opt').forEach(function (el) {
+          el.classList.toggle('active', el.getAttribute('data-lang') === lang);
+        });
+      }
+
+      document.querySelectorAll('.lang-opt').forEach(function (el) {
+        el.addEventListener('click', function () {
+          var lang = el.getAttribute('data-lang');
+          if (lang !== currentLang) {
+            applyLanguage(lang);
+          }
+        });
+      });
+
+      applyLanguage(currentLang);
+
+      var btnPresupuesto = document.getElementById('btn-presupuesto');
+      var formPanel = document.getElementById('form-panel');
+      var contactForm = document.getElementById('contact-form');
+      var formSuccess = document.getElementById('form-success');
+      var formError = document.getElementById('form-error');
+      var submitBtn = document.getElementById('submit-btn');
+
+      btnPresupuesto.addEventListener('click', function () {
+        var open = formPanel.classList.toggle('open');
+        btnPresupuesto.setAttribute('aria-expanded', String(open));
+        formPanel.setAttribute('aria-hidden', String(!open));
+        if (open) {
+          formPanel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+      });
+
+      contactForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+        formSuccess.classList.remove('show');
+        formError.classList.remove('show');
+        submitBtn.disabled = true;
+
+        fetch(contactForm.action, {
+          method: 'POST',
+          body: new FormData(contactForm),
+          headers: { Accept: 'application/json' }
+        }).then(function (response) {
+          if (response.ok) {
+            contactForm.reset();
+            formSuccess.classList.add('show');
+          } else {
+            formError.classList.add('show');
+            submitBtn.disabled = false;
+          }
+        }).catch(function () {
+          formError.classList.add('show');
+          submitBtn.disabled = false;
+        });
+      });
+    })();
+  </script>
+
+</body>
+</html>
