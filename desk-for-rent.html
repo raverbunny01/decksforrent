@@ -25,6 +25,8 @@
 
     html {
       scroll-behavior: smooth;
+      width: 100%;
+      overflow-x: hidden;
     }
 
     body {
@@ -33,12 +35,17 @@
       background: #000000;
       color: #FFFFFF;
       overflow-x: hidden;
+      width: 100%;
+      max-width: 100%;
+      min-height: auto;
     }
 
     /* —— Hero grid —— */
     .hero {
       background: #000000;
       width: 100%;
+      max-width: 100%;
+      overflow: hidden;
     }
 
     .grid {
@@ -84,8 +91,8 @@
     .equipos-img {
       display: block;
       margin: 0 auto 2rem;
-      max-width: min(980px, calc(100% - 2rem));
-      width: auto;
+      width: min(100%, 1200px);
+      max-width: 100%;
       height: auto;
     }
 
@@ -285,9 +292,47 @@
     }
 
     @media (max-width: 768px) {
+      .hero {
+        padding: 3.25rem 0.5rem 0.75rem;
+      }
+
+      .grid {
+        width: 100%;
+        max-width: 100%;
+      }
+
+      .word {
+        font-size: clamp(0.95rem, 4.6vw, 1.55rem);
+        line-height: 0.86;
+        padding: 0.04em 0;
+      }
+
+      .lang-toggle {
+        top: 0.9rem;
+        right: 0.9rem;
+        z-index: 9999;
+      }
+
       .section-equipos,
       .section-form {
-        padding: 60px 1.25rem;
+        padding: 60px 1rem;
+        width: 100%;
+        max-width: 100%;
+      }
+
+      .section-equipos {
+        padding-left: 0.75rem;
+        padding-right: 0.75rem;
+      }
+
+      .equipos-img {
+        width: 100%;
+        max-width: 100%;
+        margin-bottom: 1.5rem;
+      }
+
+      .section-form {
+        padding-bottom: 3rem;
       }
     }
   </style>
