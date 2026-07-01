@@ -427,12 +427,31 @@
           <label for="evento" data-i18n="form.evento">Tipo de evento</label>
           <select id="evento" name="evento" required>
             <option value="" disabled selected data-i18n="select.placeholder">Selecciona una opción</option>
-            <option value="Fiesta privada" data-i18n="evento.privada">Fiesta privada</option>
-            <option value="Corporativo" data-i18n="evento.corporativo">Corporativo</option>
-            <option value="Club / Festival" data-i18n="evento.club">Club / Festival</option>
-            <option value="Estudio" data-i18n="evento.estudio">Estudio</option>
+            <option data-i18n="evento.privada">Fiesta privada</option>
+            <option data-i18n="evento.hotel">Hotel / Resort</option>
+            <option data-i18n="evento.terraza">Terraza / Rooftop</option>
+            <option data-i18n="evento.club">Club / Festival</option>
+            <option data-i18n="evento.corporativo">Evento corporativo</option>
+            <option data-i18n="evento.restaurante">Restaurante / Bar</option>
+            <option data-i18n="evento.estudio">Sesión de estudio</option>
+            <option data-i18n="evento.boda">Boda</option>
           </select>
         </div>
+
+        <div class="form-group">
+          <label for="musica" data-i18n="form.musica">Estilo de música</label>
+          <select id="musica" name="musica" required>
+            <option value="" disabled selected data-i18n="select.placeholder">Selecciona una opción</option>
+            <option data-i18n="musica.house">House / Techno</option>
+            <option data-i18n="musica.hiphop">Hip Hop / R&amp;B</option>
+            <option data-i18n="musica.comercial">Comercial / Top 40</option>
+            <option data-i18n="musica.latino">Latino / Reggaeton</option>
+            <option data-i18n="musica.open">Open Format</option>
+            <option data-i18n="musica.otro">Otro</option>
+          </select>
+        </div>
+
+        <input type="hidden" id="recargo" name="recargo" value="">
 
         <div class="form-group">
           <label for="fecha" data-i18n="form.fecha">Fecha</label>
@@ -474,6 +493,7 @@
           'form.email.placeholder': 'tu@email.com',
           'form.equipo': 'Equipo',
           'form.evento': 'Tipo de evento',
+          'form.musica': 'Estilo de música',
           'form.fecha': 'Fecha',
           'form.rrss': '¿Cuál es tu perfil de redes sociales?',
           'form.rrss.placeholder': '@instagram',
@@ -488,9 +508,19 @@
           'equipo.cdj1': 'Solo 1× CDJ-3000',
           'equipo.xone': 'Solo Xone:96',
           'evento.privada': 'Fiesta privada',
-          'evento.corporativo': 'Corporativo',
+          'evento.hotel': 'Hotel / Resort',
+          'evento.terraza': 'Terraza / Rooftop',
           'evento.club': 'Club / Festival',
-          'evento.estudio': 'Estudio'
+          'evento.corporativo': 'Evento corporativo',
+          'evento.restaurante': 'Restaurante / Bar',
+          'evento.estudio': 'Sesión de estudio',
+          'evento.boda': 'Boda',
+          'musica.house': 'House / Techno',
+          'musica.hiphop': 'Hip Hop / R&B',
+          'musica.comercial': 'Comercial / Top 40',
+          'musica.latino': 'Latino / Reggaeton',
+          'musica.open': 'Open Format',
+          'musica.otro': 'Otro'
         },
         en: {
           'lang.aria': 'Language',
@@ -507,6 +537,7 @@
           'form.email.placeholder': 'you@email.com',
           'form.equipo': 'Equipment',
           'form.evento': 'Event type',
+          'form.musica': 'Music style',
           'form.fecha': 'Date',
           'form.rrss': 'What is your main social media profile?',
           'form.rrss.placeholder': '@instagram',
@@ -521,10 +552,42 @@
           'equipo.cdj1': '1× CDJ-3000 only',
           'equipo.xone': 'Xone:96 only',
           'evento.privada': 'Private party',
-          'evento.corporativo': 'Corporate',
+          'evento.hotel': 'Hotel / Resort',
+          'evento.terraza': 'Rooftop',
           'evento.club': 'Club / Festival',
-          'evento.estudio': 'Studio session'
+          'evento.corporativo': 'Corporate event',
+          'evento.restaurante': 'Restaurant / Bar',
+          'evento.estudio': 'Studio session',
+          'evento.boda': 'Wedding',
+          'musica.house': 'House / Techno',
+          'musica.hiphop': 'Hip Hop / R&B',
+          'musica.comercial': 'Commercial / Top 40',
+          'musica.latino': 'Latin / Reggaeton',
+          'musica.open': 'Open Format',
+          'musica.otro': 'Other'
         }
+      };
+
+      var recargosByKey = {
+        'evento.privada': 'Sin recargo',
+        'evento.hotel': '+30%',
+        'evento.terraza': '+20%',
+        'evento.club': 'Sin recargo',
+        'evento.corporativo': '+25%',
+        'evento.restaurante': '+15%',
+        'evento.estudio': 'Sin recargo',
+        'evento.boda': '+25%'
+      };
+
+      var recargosByKeyEn = {
+        'evento.privada': 'No surcharge',
+        'evento.hotel': '+30%',
+        'evento.terraza': '+20%',
+        'evento.club': 'No surcharge',
+        'evento.corporativo': '+25%',
+        'evento.restaurante': '+15%',
+        'evento.estudio': 'No surcharge',
+        'evento.boda': '+25%'
       };
 
       var currentLang = localStorage.getItem('lang') || 'es';
@@ -562,6 +625,19 @@
         document.querySelectorAll('.lang-opt').forEach(function (el) {
           el.classList.toggle('active', el.getAttribute('data-lang') === lang);
         });
+
+        updateRecargo();
+      }
+
+      function updateRecargo() {
+        var eventoSelect = document.getElementById('evento');
+        var recargoInput = document.getElementById('recargo');
+        if (!eventoSelect || !recargoInput) return;
+
+        var opt = eventoSelect.options[eventoSelect.selectedIndex];
+        var key = opt && opt.getAttribute('data-i18n');
+        var map = currentLang === 'en' ? recargosByKeyEn : recargosByKey;
+        recargoInput.value = key && map[key] ? map[key] : '';
       }
 
       document.querySelectorAll('.lang-opt').forEach(function (el) {
@@ -574,6 +650,8 @@
       });
 
       applyLanguage(currentLang);
+
+      document.getElementById('evento').addEventListener('change', updateRecargo);
 
       var btnPresupuesto = document.getElementById('btn-presupuesto');
       var formPanel = document.getElementById('form-panel');
@@ -593,6 +671,7 @@
 
       contactForm.addEventListener('submit', function (e) {
         e.preventDefault();
+        updateRecargo();
         formSuccess.classList.remove('show');
         formError.classList.remove('show');
         submitBtn.disabled = true;
@@ -604,6 +683,7 @@
         }).then(function (response) {
           if (response.ok) {
             contactForm.reset();
+            updateRecargo();
             formSuccess.classList.add('show');
           } else {
             formError.classList.add('show');
