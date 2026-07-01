@@ -27,6 +27,8 @@
       scroll-behavior: smooth;
       width: 100%;
       overflow-x: hidden;
+      min-height: 100vh;
+      min-height: 100dvh;
     }
 
     body {
@@ -37,7 +39,10 @@
       overflow-x: hidden;
       width: 100%;
       max-width: 100%;
-      min-height: auto;
+      min-height: 100vh;
+      min-height: 100dvh;
+      margin: 0;
+      padding: 0;
     }
 
     /* —— Hero grid —— */
@@ -91,8 +96,8 @@
     .equipos-img {
       display: block;
       margin: 0 auto 2rem;
-      width: min(100%, 1200px);
-      max-width: 100%;
+      width: 100%;
+      max-width: 1000px;
       height: auto;
     }
 
@@ -260,9 +265,9 @@
 
     .lang-toggle {
       position: fixed;
-      top: 1.25rem;
-      right: 1.25rem;
-      z-index: 9999;
+      top: 20px;
+      right: 20px;
+      z-index: 999;
       display: flex;
       align-items: center;
       gap: 0.35em;
@@ -293,12 +298,13 @@
 
     @media (max-width: 768px) {
       .hero {
-        padding: 3.25rem 0.5rem 0.75rem;
+        padding: 0 0.5rem 0.75rem;
       }
 
       .grid {
         width: 100%;
         max-width: 100%;
+        padding-top: 3.5rem;
       }
 
       .word {
@@ -308,9 +314,9 @@
       }
 
       .lang-toggle {
-        top: 0.9rem;
-        right: 0.9rem;
-        z-index: 9999;
+        top: 20px;
+        right: 20px;
+        z-index: 999;
       }
 
       .section-equipos,
@@ -332,7 +338,7 @@
       }
 
       .section-form {
-        padding-bottom: 3rem;
+        padding-bottom: 60px;
       }
     }
   </style>
