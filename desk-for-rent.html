@@ -254,7 +254,7 @@
       position: fixed;
       top: 1.25rem;
       right: 1.25rem;
-      z-index: 100;
+      z-index: 9999;
       display: flex;
       align-items: center;
       gap: 0.35em;
@@ -262,20 +262,25 @@
       letter-spacing: 0.12em;
       text-transform: uppercase;
       user-select: none;
+      mix-blend-mode: difference;
+      pointer-events: auto;
     }
 
     .lang-opt {
       cursor: pointer;
-      color: #666666;
-      transition: color 0.2s ease;
+      color: #FFFFFF;
+      opacity: 0.45;
+      transition: opacity 0.2s ease;
     }
 
     .lang-opt.active {
       color: #FFFFFF;
+      opacity: 1;
     }
 
     .lang-sep {
-      color: #666666;
+      color: #FFFFFF;
+      opacity: 0.45;
     }
 
     @media (max-width: 768px) {
@@ -315,10 +320,12 @@
     <p class="equipos-label" data-i18n="equipos.label">Equipo disponible</p>
     <img
       class="equipos-img"
-      src="https://thedjhookup.com/media/catalog/product/p/i/pioneer-cdj-3000-allen-heath-xone-96-bundle.png"
+      src="images/equipment-bundle.png"
       alt="Pioneer CDJ-3000 y Allen &amp; Heath Xone:96"
       data-i18n-alt="equipos.alt"
-      loading="lazy"
+      width="1785"
+      height="550"
+      loading="eager"
     >
     <ul class="equipos-detail">
       <li data-i18n="equipos.cdj">2× Pioneer CDJ-3000</li>
